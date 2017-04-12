@@ -1,0 +1,5 @@
+#!/bin/bash
+scrot /tmp/shot.png
+convert /tmp/shot.png -paint 2 -modulate 80 /tmp/shot.png
+[[ -f ~/.i3/lock.png ]] && convert /tmp/shot.png  ~/.i3/lock.png -gravity center -composite -matte /tmp/shot.png
+i3lock -n -e -i /tmp/shot.png

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xsettings" version="1.0">
+  <property name="Gtk" type="empty">
+    <property name="ColorScheme" type="string" value="selected_bg_color:#ef2929;selected_fg_color:#eeeeee;"/>
+  </property>
+</channel>

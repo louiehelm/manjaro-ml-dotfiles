@@ -1,0 +1,8 @@
+{
+	"color_scheme": "Packages/wal/base16-wal.tmTheme",
+	"font_size": 11,
+	"ignored_packages":
+	[
+		"Vintage"
+	]
+}

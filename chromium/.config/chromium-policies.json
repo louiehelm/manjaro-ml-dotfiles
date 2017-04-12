@@ -1,0 +1,49 @@
+{
+  // critical privacy settings
+
+  "AlternateErrorPagesEnabled": false,
+  "MetricsReportingEnabled": false,
+  "SpellCheckServiceEnabled": false,
+  "SafeBrowsingEnabled": false,
+  "SafeBrowsingExtendedReportingOptInAllowed": false,
+  "TranslateEnabled": false,
+  "SearchSuggestEnabled": false,
+  "SyncDisabled": true,
+  "DefaultSearchProviderSearchURL": "https://googol.warriordudimanche.net/?q={searchTerms}&lang=en&mod=web",
+  "DefaultGeolocationSetting": 3,
+  "DHEEnabled": false,
+  "HideWebStoreIcon": true,
+  "URLBlacklist": ["https://clients1.google.com/tbproxy/af/"],
+ 
+  // "NetworkPredictionOptions": false,
+  // "DnsPrefetchingEnabled": false,
+
+  // Auto-Intall uBlockOrigin / uBO-Extra / TamperMonkey
+  "ExtensionInstallForcelist": ["pgdnlhfefecpicbbihgmbmffkjpaplco;https://clients2.google.com/service/update2/crx","cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx","dhdgffkkebhmkfjojejmpbldmpobfkfo;https://clients2.google.com/service/update2/crx"],
+
+  // Allow Custom YouTube Resize Userscript
+  // "ExtensionInstallWhitelist": ["jnlekakfccbmkfgmjmjopjopafgnojca"],
+  //"ExtensionInstallSources": ["<all_urls>"],
+
+
+  // Local security tweaks
+
+  "AutoFillEnabled": false,
+  "PasswordManagerEnabled": false,
+  "ImportSavedPasswords": false,
+
+  // less critical aestetic tweaks
+
+  "CloudPrintSubmitEnabled": false,
+  "CloudPrintProxyEnabled": false,
+  "ShowAppsShortcutInBookmarkBar": false,
+  "SigninAllowed": false,
+  "ForceBrowserSignin": false,
+  "RestoreOnStartup": 5,
+  "HomepageIsNewTabPage": true,
+  "DefaultNotificationsSetting": 2,
+  "ShowHomeButton": false,
+  "BookmarkBarEnabled": false,
+  "AllowDinosaurEasterEgg": true
+  
+}

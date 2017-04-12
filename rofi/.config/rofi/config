@@ -1,0 +1,16 @@
+! ------------------------------------------------------------------------------
+!                      ROFI Settings
+! ------------------------------------------------------------------------------
+
+! General
+rofi.font:                Fixed 40
+rofi.hide-scrollbar:      true
+
+! Layout
+rofi.width:              36
+! rofi.column:             20
+! rofi.location:           0
+rofi.lines:              6
+rofi.padding:            80
+! rofi.sidebar-mode:       false
+! rofi.fullscreen:         false
