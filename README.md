@@ -21,20 +21,15 @@ Most opinionated features of this ML-focused i3 rice:
 
 0. Install [rEFInd as your bootloader](http://www.rodsbooks.com/refind/installing.html) (Recommended) and [rEFInd-minimal theme](https://github.com/EvanPurkhiser/rEFInd-minimal) (Optional)
 
-1. Install fresh copy of [`manjaro-i3`](https://sourceforge.net/projects/manjaro-i3/)
-  * Protip: On macs w/ Fusion drives, get higher performance by installing on the SSD. There's a [secret, undocumented way to non-destructively resize a Fusion Drive](http://blog.fosketts.net/2012/10/03/mac-os-corestorage-resize/).
+1. Install fresh copy of [`manjaro-i3`](https://sourceforge.net/projects/manjaro-i3/)<sup id="a1">[1](#f1)</sup>
 
-2. `cd ~`
+2. `git clone https://github.com/louiehelm/manjaro-ml-dotfiles ~/dotfiles; cd ~/dotfiles`
 
-3. `git clone https://github.com/louiehelm/manjaro-ml-dotfiles`
+3. `./install.sh`
 
-4. `cd manjaro-ml-dotfiles`
+4. Install the [Resize Youtube](https://github.com/Zren/ResizeYoutubePlayerToWindowSize/raw/master/153699.user.js) userscript in `chromium` via `Tampermonkey`
 
-5. `./install.sh`
-
-6. Install the [Resize Youtube](https://github.com/Zren/ResizeYoutubePlayerToWindowSize/raw/master/153699.user.js) userscript in `chromium` via `Tampermonkey`
-
-7. Install [Nyan Cat Progress Bar](https://userstyles.org/styles/userjs/95033/YouTube%20-%20Nyan%20Cat%20progress%20bar%20video%20player%20theme.user.js) (Optional Dankness)
+5. Install [Nyan Cat Progress Bar](https://userstyles.org/styles/userjs/95033/YouTube%20-%20Nyan%20Cat%20progress%20bar%20video%20player%20theme.user.js) (Optional Dankness)
 
 
 
@@ -77,3 +72,6 @@ Most opinionated features of this ML-focused i3 rice:
 - Encrypted DNS: `dns-crypt`
 - Extensions: `uBlockOrigin` `uBO-Extra`
 - Search Engine: [`Googol`](https://github.com/broncowdd/googol)
+
+
+<b id="f1">1</b> On macs w/ Fusion drives, you can get higher performance by installing on the SSD. There's a [secret, undocumented way to non-destructively resize a Fusion Drive](http://blog.fosketts.net/2012/10/03/mac-os-corestorage-resize/). [↩](#a1)
