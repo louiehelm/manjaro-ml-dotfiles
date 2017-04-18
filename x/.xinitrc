@@ -5,6 +5,9 @@
 # Executed by startx (run your window manager from here)
 
 
+# Locate main network card for polybar
+export NET_CARD=`iw dev | awk '$1=="Interface"{print $2}'`
+
 # GTK-2.0 RC files
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 

@@ -1,7 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 
+export NET_CARD=`iw dev | awk '$1=="Interface"{print $2}'`
+setopt PROMPT_CR
+setopt PROMPT_SP
+export PROMPT_EOL_MARK=""
+
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.

@@ -15,7 +15,8 @@ mkdir -p ~/.local/share/icons/default   # prevents error with fix_xcusor
 
 sudo mkfontdir /usr/share/fonts/100dpi && sudo mkfontdir /usr/share/fonts/75dpi
 
-sudo sed -i 's/#WIRELESS_REGDOM="BO"/WIRELESS_REGDOM="BO"/g' /etc/conf.d/wireless-regdom
+# Uncomment for max wifx tx
+# sudo sed -i 's/#WIRELESS_REGDOM="BO"/WIRELESS_REGDOM="BO"/g' /etc/conf.d/wireless-regdom
 
 
 ## Patch blurlock to be cooler
@@ -42,9 +43,9 @@ sudo sed -i 's/#SystemMaxUse=/SystemMaxUse=100M/;s/#RuntimeMaxUse=/RuntimeMaxUse
 
 
 
-## Patch Sound Card Buffer
+## Patch Sound Card Buffer (only needed on older sound cards)
 
-echo 'options snd-hda-intel bdl_pos_adj=48' | sudo tee /etc/modprobe.d/alsa.conf > /dev/null
+# echo 'options snd-hda-intel bdl_pos_adj=48' | sudo tee /etc/modprobe.d/alsa.conf > /dev/null
 
 
 ## Tweaks for faster, quieter, more stable boot
@@ -55,7 +56,15 @@ sudo cp  /usr/lib/systemd/system/systemd-fsck* /etc/systemd/system/
 
 sudo grep -q 'StandardOutput' /etc/systemd/system/systemd-fsck-root.service || echo -e 'StandardOutput=null\nStandardError=journal+console' | sudo tee -a /etc/systemd/system/systemd-fsck-root.service /etc/systemd/system/systemd-fsck@.service > /dev/null
 
-echo '"Manjaro" "quiet loglevel=3 nomodeset root=UUID='$(sudo blkid -s UUID -o value $(findmnt -no source -M /)) 'rootflags=rw,noatime rd.udev.log-priority=3 ipv6.disable=1 vt.global_cursor_default=0"' | sudo tee /boot/refind_linux.conf > /dev/null
+BOOT_ARGS="quiet loglevel=3 nomodeset root=UUID=$(sudo blkid -s UUID -o value $(findmnt -no source -M /)) rootflags=rw,noatime rd.udev.log-priority=3 ipv6.disable=1 vt.global_cursor_default=0"
+
+SED_BOOT="s/\"quiet\"/\""$BOOT_ARGS"\"/"
+
+echo $SED_BOOT
+
+echo '"Manjaro" "'$BOOT_ARGS'"' | sudo tee /boot/refind_linux.conf > /dev/null
+
+sudo sed -i "$SED_BOOT" /etc/default/grub
 
 sudo rm -f /etc/fstab # make systemd auto-mount / + tmpfs faster (no re-mounts)
 

@@ -21,8 +21,8 @@ secondary = ${xrdb:color2}
 alert = ${xrdb:color1}
 
 [bar/top]
-monitor = LVDS
-monitor-fallback =
+#monitor = LVDS
+#monitor-fallback = eDPI1
 width = 100%
 height = 38
 ;offset-x = 1%
@@ -310,7 +310,7 @@ format-padding = 1
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = ${env:NET_CARD:wlp59s0}
 interval = 3.0
 
 ; A3: nm-connection-editor &:
