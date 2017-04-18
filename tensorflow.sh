@@ -64,10 +64,7 @@ if [ -f /opt/cuda/include/cudnn.h ]; then
     echo "Enabling CUDA"
     export CUDA_BUILD="--config=cuda"
     export TF_NEED_CUDA=1
-    
-    #sudo pacman -S --needed --noconfirm gcc49
-
-    export GCC_HOST_COMPILER_PATH=/usr/bin/gcc
+    export GCC_HOST_COMPILER_PATH=/usr/bin/gcc-5
     export CUDA_TOOLKIT_PATH=/opt/cuda
     export CUDNN_INSTALL_PATH=/opt/cuda
     export TF_CUDA_COMPUTE_CAPABILITIES=5.2

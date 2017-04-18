@@ -3,6 +3,8 @@
 # Install MKL from AUR
 pacaur -S --needed --noconfirm --noedit intel-mkl 
 
+rm -rf /tmp/intel-parallel-studio-xe
+rm -rf /tmp/makepkg
 
 # Give mkl a knowable location
 sudo ln -sf /opt/intel/*/linux/mkl /opt/intel/mkl

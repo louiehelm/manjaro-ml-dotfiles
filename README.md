@@ -19,13 +19,13 @@ Most opinionated features of this ML-focused i3 rice:
 ## Installation
 
 
-0. Install [rEFInd as your bootloader](http://www.rodsbooks.com/refind/installing.html) (Recommended) and [rEFInd-minimal theme](https://github.com/EvanPurkhiser/rEFInd-minimal) (Optional)
+0. (Optional) Install [rEFInd as your bootloader](http://www.rodsbooks.com/refind/installing.html) and [rEFInd-minimal theme](https://github.com/EvanPurkhiser/rEFInd-minimal)
 
 1. Install fresh copy of [`manjaro-i3`](https://sourceforge.net/projects/manjaro-i3/)<sup id="a1">[1](#f1)</sup>
 
 2. `git clone https://github.com/louiehelm/manjaro-ml-dotfiles ~/dotfiles; cd ~/dotfiles`
 
-3. `./install.sh`
+3. `sudo ./install.sh`
 
 4. Install the [Resize Youtube](https://github.com/Zren/ResizeYoutubePlayerToWindowSize/raw/master/153699.user.js) userscript in `chromium` via `Tampermonkey`
 
