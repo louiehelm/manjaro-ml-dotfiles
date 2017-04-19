@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Install MKL from AUR
-pacaur -S --needed --noconfirm --noedit intel-mkl 
-
+# Install MKL from AUR (can't build in ram -- too big)
+BUILDDIR=~/.cache/ pacaur -S --needed --noconfirm --noedit intel-mkl 
+rm -rf /.cache/intel-parallel-studio-xe
 rm -rf /tmp/intel-parallel-studio-xe
-rm -rf /tmp/makepkg
 
 # Give mkl a knowable location
 sudo ln -sf /opt/intel/*/linux/mkl /opt/intel/mkl
@@ -26,6 +25,7 @@ sudo pip install git+https://github.com/fchollet/keras.git
 
 # Install MKL-enabled OpenCV
 pacaur -S --needed --noconfirm --noedit opencv-git
+rm -rf /tmp/opencv-git
 
 # Test if numpy / scipy are properly linked with mkl
 (( numpy_mkl = `python -c 'import numpy; numpy.show_config()' | grep "mkl_rt" | wc -l` ))
