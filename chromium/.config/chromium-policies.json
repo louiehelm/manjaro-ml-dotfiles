@@ -11,7 +11,6 @@
   "SyncDisabled": true,
   "DefaultSearchProviderSearchURL": "https://googol.warriordudimanche.net/?q={searchTerms}&lang=en&mod=web",
   "DefaultGeolocationSetting": 3,
-  "DHEEnabled": false,
   "HideWebStoreIcon": true,
   "URLBlacklist": ["https://clients1.google.com/tbproxy/af/"],
  
