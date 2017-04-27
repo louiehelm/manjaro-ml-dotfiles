@@ -68,3 +68,17 @@ class "GtkWidget" style "default"
 # class "*Tray*" style "panel"
 # class "*tray*" style "panel"
 '
+
+# Reload GTK theme
+type -p python2 >/dev/null 2>&1 || return
+
+python2 - <<END
+import sys, gtk
+
+events=gtk.gdk.Event(gtk.gdk.CLIENT_EVENT)
+data=gtk.gdk.atom_intern("_GTK_READ_RCFILES", False)
+events.data_format=8
+events.send_event=True
+events.message_type=data
+events.send_clientmessage_toall()
+END

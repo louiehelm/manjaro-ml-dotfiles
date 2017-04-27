@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Delete unwanted programs
-sudo pacman -R flashplugin hexchat manjaro-hello bluez blueman clipit vi gufw ufw vlc-nightly libcanberra volumeicon palemoon-bin gimp
+sudo pacman -R flashplugin hexchat manjaro-hello clipit vi gufw ufw vlc-nightly libcanberra volumeicon palemoon-bin gimp
 
 # Add fallback theme
 sudo pacman -S --needed --noconfirm gnome-themes-standard gnome-icon-theme
@@ -24,7 +24,7 @@ sudo grep -q "editpkgbuild=false" /etc/xdg/pacaur/config || echo "editpkgbuild=f
 sudo pacman -Rdd --noconfirm vte3
 sudo pacman -S --needed --noconfirm vte3-ng wget tmux rofi termite chromium mpv zsh numlockx qt5-styleplugins perl-anyevent-i3  hunspell-en lsof galculator gucharmap cmatrix doge httping
 
-pacaur -S --needed --noedit --noconfirm polybar nerd-fonts-complete oh-my-zsh-git zsh-autosuggestions-git vim-lightline-git neofetch openblas-lapack sublime-text-dev gtkrc-reload
+pacaur -S --needed --noedit --noconfirm polybar nerd-fonts-complete oh-my-zsh-git zsh-autosuggestions-git vim-lightline-git neofetch openblas-lapack sublime-text-dev
 
 # Update font cache
 fc-cache -fv

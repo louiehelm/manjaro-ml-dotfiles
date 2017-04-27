@@ -32,7 +32,6 @@ set_scss() {
 
 set_gtk() {
     ${HOME}/.gtkrc-2.0.mine.sh > ${HOME}/.gtkrc-2.0.mine
-    gtkrc-reload &
 }
 
 main() {
