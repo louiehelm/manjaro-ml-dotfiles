@@ -33,7 +33,7 @@ echo -e "vm.swappiness=10\nvm.vfs_cache_pressure=50\nnet.core.optmem_max = 40960
 
 sudo sysctl -p > /dev/null
 
-echo -e "blacklist amdgpu\nblacklist bluetooth\nblacklist btusb\nblacklist uvcvideo\nblacklist ipv6\nblacklist mousedev\nblacklist thunderbolt" | sudo tee /etc/modprobe.d/rice-blacklist.conf > /dev/null
+echo -e "blacklist amdgpu\nblacklist bluetooth\nblacklist btusb\nblacklist uvcvideo\nblacklist ipv6\nblacklist mousedev\nblacklist nouveau" | sudo tee /etc/modprobe.d/rice-blacklist.conf > /dev/null
 
 sudo sed -i 's/strictatime/noatime/g' /usr/lib/systemd/system/tmp.mount
 
@@ -56,7 +56,7 @@ sudo cp  /usr/lib/systemd/system/systemd-fsck* /etc/systemd/system/
 
 sudo grep -q 'StandardOutput' /etc/systemd/system/systemd-fsck-root.service || echo -e 'StandardOutput=null\nStandardError=journal+console' | sudo tee -a /etc/systemd/system/systemd-fsck-root.service /etc/systemd/system/systemd-fsck@.service > /dev/null
 
-BOOT_ARGS="quiet loglevel=3 root=UUID=$(sudo blkid -s UUID -o value $(findmnt -no source -M /)) rootflags=rw,noatime rd.udev.log-priority=3 ipv6.disable=1 vt.global_cursor_default=0"
+BOOT_ARGS="quiet pci=nomsi pci=noaer loglevel=3 root=UUID=$(sudo blkid -s UUID -o value $(findmnt -no source -M /)) rootflags=rw,noatime rd.udev.log-priority=3 ipv6.disable=1 vt.global_cursor_default=0"
 
 SED_BOOT="s/\"quiet\"/\""$BOOT_ARGS"\"/"
 

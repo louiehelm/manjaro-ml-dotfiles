@@ -67,7 +67,8 @@ if [ -f /opt/cuda/include/cudnn.h ]; then
     export GCC_HOST_COMPILER_PATH=/usr/bin/gcc-5
     export CUDA_TOOLKIT_PATH=/opt/cuda
     export CUDNN_INSTALL_PATH=/opt/cuda
-    export TF_CUDA_COMPUTE_CAPABILITIES=5.2
+    export TF_CUDA_COMPUTE_CAPABILITIES=6.1
+    export TF_CUDA_CLANG=0
     export TF_CUDA_VERSION=$($CUDA_TOOLKIT_PATH/bin/nvcc --version | sed -n 's/^.*release \(.*\),.*/\1/p')
     export TF_CUDNN_VERSION=$(sed -n 's/^#define CUDNN_MAJOR\s*\(.*\).*/\1/p' $CUDNN_INSTALL_PATH/include/cudnn.h)
 else
@@ -79,11 +80,12 @@ fi
 export PYTHON_BIN_PATH=$(which python || which python3  || true)
 export TF_NEED_GCP=0
 export TF_NEED_HDFS=0
+export TF_NEED_VERBS=0
 export TF_ENABLE_XLA=1
 export TF_NEED_JEMALLOC=0
 export CC_OPT_FLAGS="-march=native"
 export USE_DEFAULT_PYTHON_LIB_PATH=1
-#export TF_UNOFFICIAL_SETTING=1
+export TF_UNOFFICIAL_SETTING=1
 #export TF_CPP_MIN_LOG_LEVEL=1
 
 
