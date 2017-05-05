@@ -13,9 +13,11 @@ rm -rf /tmp/bazel
 sudo ln -sf /usr/lib/libtinfo.so /usr/lib/libtinfo.so.5
 
 
-./mkl_numpy_scipy_opencv.sh
 
 ./tensorflow.sh
+
+# Build after TF for API matching
+./mkl_numpy_scipy_opencv.sh
 
 ## Install Gym + Universe from leading edge source
 

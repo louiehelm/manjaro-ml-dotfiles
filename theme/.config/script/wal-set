@@ -18,8 +18,7 @@ reload_dunst() {
 }
 
 set_bar() {
-    pkill bar
-    sleep 1
+    killall -9 polybar
     polybar top &
 }
 

@@ -3,6 +3,6 @@ EDITOR=vim
 VISUAL=vim
 BROWSER=chromium
 DESKTOP_SESSION=gnome
-LD_LIBRARY_PATH=/usr/local/computecpp/lib:/opt/intel/mkl/lib/intel64:/usr/lib
+LD_LIBRARY_PATH=/usr/local/computecpp/lib:/opt/intel/mkl/lib/intel64:/usr/lib:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64/
 DYLD_LIBRARY_PATH=/opt/intel/mkl/lib/intel64
 KMP_AFFINITY=granularity=fine,compact,1,0

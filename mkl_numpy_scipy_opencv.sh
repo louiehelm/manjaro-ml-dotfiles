@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+
+
 # Install MKL from AUR (can't build in ram -- too big)
 BUILDDIR=~/.cache/ pacaur -S --needed --noconfirm --noedit intel-mkl 
 rm -rf /.cache/intel-parallel-studio-xe
@@ -22,6 +24,9 @@ sudo pip install --upgrade git+https://github.com/uploadcare/pillow-simd.git
 # Install Theano and Keras from source
 sudo pip install git+https://github.com/Theano/Theano.git
 sudo pip install git+https://github.com/fchollet/keras.git
+
+# For CUDA compatible building of OpenCV
+export GCC_HOST_COMPILER_PATH=/usr/bin/gcc-5
 
 # Install MKL-enabled OpenCV
 pacaur -S --needed --noconfirm --noedit opencv-git

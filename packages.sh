@@ -22,9 +22,9 @@ sudo grep -q "editpkgbuild=false" /etc/xdg/pacaur/config || echo "editpkgbuild=f
 
 # Install desired packages
 sudo pacman -Rdd --noconfirm vte3
-sudo pacman -S --needed --noconfirm vte3-ng wget tmux rofi termite chromium mpv zsh numlockx qt5-styleplugins perl-anyevent-i3  hunspell-en lsof galculator gucharmap gnome-alsamixer cmatrix doge httping
+sudo pacman -S --needed --noconfirm vte3-ng wget tmux rofi termite chromium mpv zsh numlockx qt5-styleplugins perl-anyevent-i3 zsh-autosuggestions hunspell-en lsof galculator gucharmap gnome-alsamixer cmatrix doge httping
 
-pacaur -S --needed --noedit --noconfirm polybar nerd-fonts-complete oh-my-zsh-git zsh-autosuggestions-git vim-lightline-git neofetch openblas-lapack sublime-text-dev
+pacaur -S --needed --noedit --noconfirm polybar nerd-fonts-complete oh-my-zsh-git vim-lightline-git neofetch openblas-lapack sublime-text-dev
 
 # Update font cache
 fc-cache -fv
