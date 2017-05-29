@@ -14,6 +14,9 @@ rm -rf ~/.Xresources
 rm -rf ~/.xinitrc
 rm -rf ~/.config/compton.conf
 rm -rf ~/.config/mimeapps.list
+rm -rf ~/.config/dunst/dunstrc
+rm -rf ~/.config/gtk-3.0/settings.ini
+rm -rf ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 rm -rf ~/termite
 
 

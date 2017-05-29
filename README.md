@@ -21,7 +21,7 @@ Most opinionated features of this ML-focused i3 rice:
 
 0. (Optional) Install [rEFInd as your bootloader](http://www.rodsbooks.com/refind/installing.html) and [rEFInd-minimal theme](https://github.com/EvanPurkhiser/rEFInd-minimal)
 
-1. Install fresh copy of [`manjaro-i3`](https://sourceforge.net/projects/manjaro-i3/)<sup id="a1">[1](#f1)</sup>
+1. Install fresh copy of [`manjaro-i3`](https://sourceforge.net/projects/manjaro-i3/files/17.0.1/manjaro-i3-17.0.1-stable-x86_64.iso/download)<sup id="a1">[1](#f1)</sup>
 
 2. `git clone https://github.com/louiehelm/manjaro-ml-dotfiles ~/dotfiles; cd ~/dotfiles`
 
