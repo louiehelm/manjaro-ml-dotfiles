@@ -4,6 +4,8 @@
 # Install CUDA if card present
 if [ `mhwd | grep nvidia | wc -l` != "0" ];then
     sudo pacman -S --needed --noconfirm cuda
+    sudo rm -rf /opt/cuda/samples
+    sudo rm -rf /opt/cuda/doc
     pacaur -S --needed --noconfirm --noedit cudnn
 fi
 
@@ -79,7 +81,9 @@ fi
 #export TF_NEED_MKL=1
 export PYTHON_BIN_PATH=$(which python || which python3  || true)
 export TF_NEED_GCP=0
+export TF_MKL_ROOT=/opt/intel/mkl
 export TF_NEED_HDFS=0
+export TF_NEED_MPI=0
 export TF_NEED_VERBS=0
 export TF_ENABLE_XLA=1
 export TF_NEED_JEMALLOC=0
@@ -95,14 +99,9 @@ git clone https://github.com/tensorflow/tensorflow
 
 cd tensorflow
 
-# Enable MKL
-sed -i 's/if false/if true/;' /tmp/tensorflow/configure
-
-echo "Finished Patching"
-
 ./configure
 
-bazel build --config=opt $SYCL_BUILD $CUDA_BUILD --verbose_failures --ignore_unsupported_sandboxing //tensorflow/tools/pip_package:build_pip_package
+bazel build --config=opt --config=mkl $SYCL_BUILD $CUDA_BUILD --verbose_failures --ignore_unsupported_sandboxing //tensorflow/tools/pip_package:build_pip_package
 
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 

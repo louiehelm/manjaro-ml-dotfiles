@@ -2,22 +2,23 @@
 
 sudo pacman -S --needed --noconfirm stow
 
-rm -rf ~/.i3
-rm -rf ~/.vim
-rm -rf ~/.vimrc
-rm -rf ~/.icons
-rm -rf ~/.themes
-rm -rf ~/.gtkrc-2.0
-rm -rf ~/.pam_environment
-rm -rf ~/.extend.Xresources
-rm -rf ~/.Xresources
-rm -rf ~/.xinitrc
-rm -rf ~/.config/compton.conf
-rm -rf ~/.config/mimeapps.list
-rm -rf ~/.config/dunst/dunstrc
-rm -rf ~/.config/gtk-3.0/settings.ini
-rm -rf ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
-rm -rf ~/termite
+sudo rm -rf ~/.i3
+sudo rm -rf ~/.vim
+sudo rm -rf ~/.vimrc
+sudo rm -rf ~/.icons
+sudo rm -rf ~/.themes
+sudo rm -rf ~/.gtkrc-2.0
+sudo rm -rf ~/.pam_environment
+sudo rm -rf ~/.extend.Xresources
+sudo rm -rf ~/.Xresources
+sudo rm -rf ~/.xinitrc
+sudo rm -rf ~/.config/compton.conf
+sudo rm -rf ~/.config/mimeapps.list
+sudo rm -rf ~/.config/dunst/dunstrc
+sudo rm -rf ~/.config/gtk-3.0/settings.ini
+sudo rm -rf ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+sudo rm -rf ~/termite
+sudo rm -rf ~/.zshrc
 
 
 

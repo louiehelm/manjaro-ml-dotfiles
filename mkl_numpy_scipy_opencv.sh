@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 
 
-
-# Install MKL from AUR (can't build in ram -- too big)
-BUILDDIR=~/.cache/ pacaur -S --needed --noconfirm --noedit intel-mkl 
-rm -rf /.cache/intel-parallel-studio-xe
-rm -rf /tmp/intel-parallel-studio-xe
-
-# Give mkl a knowable location
-sudo ln -sf /opt/intel/*/linux/mkl /opt/intel/mkl
-
 # Work around known numpy issue (will not link to mkl w/o this)
 sudo ln -sf ~/.numpy-site.cfg /root/.numpy-site.cfg
 
