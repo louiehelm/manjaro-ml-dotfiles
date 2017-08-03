@@ -275,8 +275,8 @@ exec --no-startup-id numlockx
 
 exec --no-startup-id ${HOME}/x.sh
 
-#exec --no-startup-id sleep 13; TZ=EST chromium
-#exec --no-startup-id sleep 13; TZ=EST chromium --app=https://youtube.com/
+#exec --no-startup-id sleep 13; chromium
+#exec --no-startup-id sleep 13; chromium --app=https://youtube.com/
 #exec --no-startup-id sleep 13; galculator
 #exec --no-startup-id sleep 13; subl3
 #exec --no-startup-id sleep 12; termite
