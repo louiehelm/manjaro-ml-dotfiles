@@ -41,14 +41,17 @@ bindsym $mod+w exec "$HOME/.config/script/wal -t -i $HOME/Pictures/Wallpapers -o
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-bindsym $mod+Ctrl+m exec termite -e 'alsamixer'
+#bindsym $mod+Ctrl+m exec termite -e 'alsamixer'
 #exec --no-startup-id volumeicon
-#exec --no-startup-id pulseaudio
+exec --no-startup-id start-pulseaudio-x11 #pulseaudio
 #exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 3dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 3dB- unmute
+bindsym F3 exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym F2 exec amixer -q set Master 5%- unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym F1 exec amixer -q set Master toggle
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 ################################################################################################
@@ -64,10 +67,10 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm
 # bindsym $mod+t exec --no-startup-id pkill compton
 # bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym XF86Tools exec --no-startup-id i3-scrot
+bindsym Print exec i3-scrot
+bindsym F12 exec i3-scrot
 bindsym $mod+XF86Tools --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+XF86Tools --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 
@@ -263,24 +266,26 @@ mode "micro-resize" {
 #bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id ${HOME}/.config/script/wal -t -i "$(< "${HOME}/.cache/wal/wal")"; sleep 1; compton -b
-exec --no-startup-id TZ=EST chromium --no-startup-window
+exec --no-startup-id chromium --no-startup-window
 exec --no-startup-id numlockx
 # exec --no-startup-id xautolock -time 20 -locker ~/.config/script/blurlock
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
-exec --no-startup-id TZ=EST chromium
-exec --no-startup-id sleep 3; TZ=EST chromium --app=https://youtube.com/
-exec --no-startup-id termite
-exec --no-startup-id termite
-exec --no-startup-id termite
-exec --no-startup-id termite
-exec --no-startup-id subl3
-exec --no-startup-id msm_notifier
-exec --no-startup-id sleep 1; galculator
-exec --no-startup-id sleep 2; gtkrc-reload
-exec_always --no-startup-id pkill bar; sleep 2; polybar top
+
+
+exec --no-startup-id ${HOME}/x.sh
+
+#exec --no-startup-id sleep 13; TZ=EST chromium
+#exec --no-startup-id sleep 13; TZ=EST chromium --app=https://youtube.com/
+#exec --no-startup-id sleep 13; galculator
+#exec --no-startup-id sleep 13; subl3
+#exec --no-startup-id sleep 12; termite
+#exec --no-startup-id sleep 11; termite
+#exec --no-startup-id sleep 10; termite
+#exec --no-startup-id sleep 13; termite
+
+# exec --no-startup-id msm_notifier
+exec_always --no-startup-id killall -9 polybar; sleep 5; polybar top
 
 # exec --no-startup-id nm-applet
 # exec --no-startup-id pamac-tray
