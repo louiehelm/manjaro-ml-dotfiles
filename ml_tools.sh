@@ -13,6 +13,13 @@ rm -rf /tmp/bazel
 sudo ln -sf /usr/lib/libtinfo.so /usr/lib/libtinfo.so.5
 
 
+# Install MKL from AUR (can't build in ram -- too big)
+BUILDDIR=~/.cache/ pacaur -S --needed --noconfirm --noedit intel-mkl
+rm -rf ~/.cache/intel-parallel-studio-xe
+rm -rf /tmp/intel-parallel-studio-xe
+
+# Give mkl a knowable location
+sudo ln -sf /opt/intel/*/linux/mkl /opt/intel/mkl
 
 ./tensorflow.sh
 
@@ -26,8 +33,8 @@ sudo pip install "gym[atari]"
 sudo pip install git+https://github.com/openai/universe.git
 
 ## Add yourself to docker group
-sudo gpasswd -a $LOGNAME docker
+#sudo gpasswd -a $LOGNAME docker
 
 ## Start Docker service
-sudo systemctl start docker
-sudo systemctl enable docker
+#sudo systemctl start docker
+#sudo systemctl enable docker

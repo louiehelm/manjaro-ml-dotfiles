@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
 # Delete unwanted programs
-sudo pacman -R flashplugin hexchat manjaro-hello clipit vi gufw ufw vlc-nightly libcanberra volumeicon palemoon-bin gimp
+sudo pacman -R --noconfirm hexchat manjaro-hello clipit vi gufw ufw vlc-nightly libcanberra volumeicon palemoon-bin gimp conky conky-i3
 
 # Add fallback theme
 sudo pacman -S --needed --noconfirm gnome-themes-standard gnome-icon-theme
-
-
-# Cache first wal run
-$HOME/.config/script/wal -t -i $HOME/Pictures/Wallpapers -o $HOME/.config/script/wal-set
 
 
 # Update database, and upgrade packages
@@ -21,10 +17,19 @@ sudo grep -q "editpkgbuild=false" /etc/xdg/pacaur/config || echo "editpkgbuild=f
 
 
 # Install desired packages
-sudo pacman -Rdd --noconfirm vte3
+#sudo pacman -Rdd --noconfirm vte3
 sudo pacman -S --needed --noconfirm vte3-ng wget tmux rofi termite chromium mpv zsh numlockx qt5-styleplugins perl-anyevent-i3 zsh-autosuggestions hunspell-en lsof galculator gucharmap gnome-alsamixer cmatrix doge httping
 
-pacaur -S --needed --noedit --noconfirm polybar nerd-fonts-complete oh-my-zsh-git vim-lightline-git neofetch openblas-lapack sublime-text-dev
+pacaur -S -e --needed --noedit --noconfirm polybar-git python-pywal-git nerd-fonts-complete oh-my-zsh-git vim-lightline-git neofetch openblas-lapack sublime-text-dev
+
+## Install Chromium security policies
+
+sudo mkdir -p /etc/chromium/policies/managed/
+sudo ln -sf ~/.config/chromium-policies.json /etc/chromium/policies/managed/chromium-policies.json
+
+
+# Cache first wal run
+wal -t -i $HOME/Pictures/Wallpapers -o $HOME/.config/script/wal-set
 
 # Update font cache
 fc-cache -fv
