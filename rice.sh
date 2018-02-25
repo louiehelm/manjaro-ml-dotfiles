@@ -5,11 +5,15 @@
 
 echo "$LOGNAME ALL=NOPASSWD: ALL" | sudo tee /etc/sudoers.d/overrides > /dev/null
 
-sudo sed -i 's/#BUILDDIR=\/tmp\/makepkg/BUILDDIR=\/tmp\/makepkg/;s/COMPRESSXZ=(xz -c -z -)$/COMPRESSXZ=(xz -c -z - --threads=0)/;s/CFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong"/CFLAGS="-march=native -O2 -pipe -fstack-protector-strong"/;s/CXXFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong"/CXXFLAGS="${CFLAGS}"/' /etc/makepkg.conf
+
+sudo sed -i 's/COMPRESSXZ=(xz -c -z -)$/COMPRESSXZ=(xz -c -z - --threads=0)/;s/CFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong"/CFLAGS="-march=native -O2 -pipe -fstack-protector-strong"/;s/CXXFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong"/CXXFLAGS="${CFLAGS}"/' /etc/makepkg.conf
+
+#sudo sed -i 's/#BUILDDIR=\/tmp\/makepkg/BUILDDIR=\/tmp\/makepkg/;s/COMPRESSXZ=(xz -c -z -)$/COMPRESSXZ=(xz -c -z - --threads=0)/;s/CFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong"/CFLAGS="-march=native -O2 -pipe -fstack-protector-strong"/;s/CXXFLAGS="-march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong"/CXXFLAGS="${CFLAGS}"/' /etc/makepkg.conf
+
 
 sudo sed -i 's/#EnableAUR/EnableAUR/;s/#CheckAURUpdates/CheckAURUpdates/;s/#NoConfirmBuild/NoConfirmBuild/' /etc/pamac.conf
 
-mkdir -p ~/.cache && ln -sf /tmp/ ~/.cache/bazel && ln -sf /tmp/ ~/.cache/pacaur
+#mkdir -p ~/.cache && ln -sf /tmp/ ~/.cache/bazel && ln -sf /tmp/ ~/.cache/pacaur
 
 mkdir -p ~/.local/share/icons/default   # prevents error with fix_xcusor
 
@@ -33,7 +37,7 @@ echo -e "vm.swappiness=10\nvm.vfs_cache_pressure=50\nnet.core.optmem_max = 40960
 
 sudo sysctl -p > /dev/null
 
-echo -e "blacklist amdgpu\nblacklist bluetooth\nblacklist btusb\nblacklist uvcvideo\nblacklist ipv6\nblacklist mousedev\nblacklist nouveau" | sudo tee /etc/modprobe.d/rice-blacklist.conf > /dev/null
+echo -e "blacklist amdgpu\nblacklist ipv6\nblacklist mousedev\nblacklist nouveau" | sudo tee /etc/modprobe.d/rice-blacklist.conf > /dev/null
 
 #sudo sed -i 's/strictatime/noatime/g' /usr/lib/systemd/system/tmp.mount
 

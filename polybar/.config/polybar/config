@@ -333,7 +333,7 @@ date = "%{T3}%{T-} %a %b %e "
 ;date = " %a %b%e"
 ;date-alt = " %Y-%m-%d"
 
-time = "%-H:%M"
+time = "%l:%M"
 ;time-alt = " %H:%M:%S"
 
 ;format-underline = #0a6cf5

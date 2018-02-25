@@ -10,7 +10,7 @@
            "percent": 1.0,
            "nodes": [
              {
-                "percent": 0.653,
+                "percent": 0.642,
                 "swallows": [
                 {
                     "window_role": "^browser$"
@@ -18,7 +18,7 @@
                 "type": "con"
              },
              {
-                "percent": 0.347,
+                "percent": 0.358,
                 "swallows": [
                 {
                     "class": "^Chromium$"

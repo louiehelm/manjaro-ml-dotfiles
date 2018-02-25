@@ -98,7 +98,6 @@ cd /tmp
 git clone https://github.com/tensorflow/tensorflow
 
 cd tensorflow
-
 ./configure
 
 bazel build --config=opt --config=mkl $SYCL_BUILD $CUDA_BUILD --verbose_failures --ignore_unsupported_sandboxing //tensorflow/tools/pip_package:build_pip_package

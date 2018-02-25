@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
+# Install MKL from AUR (can't build in ram -- too big)
+BUILDDIR=~/.cache/ pacaur -S --needed --noconfirm --noedit intel-mkl 
+rm -rf /.cache/intel-parallel-studio-xe
+rm -rf /tmp/intel-parallel-studio-xe
+
+# Give mkl a knowable location
+sudo ln -sf /opt/intel/*/linux/mkl /opt/intel/mkl
 
 # Work around known numpy issue (will not link to mkl w/o this)
 sudo ln -sf ~/.numpy-site.cfg /root/.numpy-site.cfg
 
 # Compile + install numpy / scipy from source so MKL is added
-sudo pip install git+https://github.com/numpy/numpy.git
-sudo pip install git+https://github.com/scipy/scipy.git
+sudo pip install --upgrade git+https://github.com/numpy/numpy.git
+sudo pip install --upgrade git+https://github.com/scipy/scipy.git
 
 
 # Install SIMD-enabled Pillow as well
@@ -20,7 +27,7 @@ sudo pip install git+https://github.com/fchollet/keras.git
 export GCC_HOST_COMPILER_PATH=/usr/bin/gcc-5
 
 # Install MKL-enabled OpenCV
-pacaur -S --needed --noconfirm --noedit opencv-git
+BUILDDIR=~/.cache/ pacaur -S --needed --noconfirm --noedit opencv-git
 rm -rf /tmp/opencv-git
 
 # Test if numpy / scipy are properly linked with mkl
